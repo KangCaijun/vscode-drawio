@@ -102,9 +102,8 @@
 	},
 	"scripts": {
 		"pub": "vsce publish --yarn",
-		"package": "vsce package --yarn",
+		"build": "vsce package --yarn --out ./vscode-drawio.vsix",
 		"vscode:prepublish": "prettier --check src && webpack --mode production",
-		"build": "webpack --mode development",
 		"dev": "webpack --mode development --watch",
 		"test-compile": "tsc -p ./",
 		"fmt": "prettier --write src",

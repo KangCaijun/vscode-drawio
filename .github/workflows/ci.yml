@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: 10.x
       - run: yarn install
-      - run: yarn vscode:prepublish
       - name: "Package"
-        run: npx vsce package
+        run: yarn build
+      - name: Upload vsix
+        uses: actions/upload-artifact@v1
+        with:
+          name: vscode-drawio.vsix
+          path: ./vscode-drawio.vsix
