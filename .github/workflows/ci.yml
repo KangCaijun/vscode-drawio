@@ -1,4 +1,8 @@
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
@@ -16,10 +20,4 @@ jobs:
         with:
           node-version: 10.x
       - run: yarn install
-      - name: "Package"
-        run: yarn build
-      - name: Upload vsix
-        uses: actions/upload-artifact@v1
-        with:
-          name: vscode-drawio.vsix
-          path: ./vscode-drawio.vsix
+      - run: yarn build
